@@ -15,10 +15,10 @@ export class FormIrpfComponent implements OnInit {
 
   ngOnInit(): void {
     this.pensionForm = this.fb.group({
-      pensionFisico: ['', [Validators.required, Validators.pattern('[0-9]*')]], // solo números
-      pensionEmpresa: ['', [Validators.required, Validators.pattern('[0-9]*')]], // solo números
-      pensionAutonomo: ['', [Validators.required, Validators.pattern('[0-9]*')]], // solo números
-      sueldo: ['', [Validators.required, Validators.pattern('[0-9]*')]] // solo números
+      pensionFisico: ['', [Validators.required, Validators.pattern('[0-9]*')]], 
+      pensionEmpresa: ['', [Validators.required, Validators.pattern('[0-9]*')]], 
+      pensionAutonomo: ['', [Validators.required, Validators.pattern('[0-9]*')]], 
+      sueldo: ['', [Validators.required, Validators.pattern('[0-9]*')]] 
     });
   }
 
