@@ -1,1 +1,25 @@
-<p>form-irpf works!</p>
+<div class="container">
+  <form [formGroup]="pensionForm" (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="form-group">
+      <label for="pensionFisico">Pensión Físico</label>
+      <input id="pensionFisico" formControlName="pensionFisico" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="pensionEmpresa">Pensión Empresa</label>
+      <input id="pensionEmpresa" formControlName="pensionEmpresa" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="pensionAutonomo">Pensión Autónomo</label>
+      <input id="pensionAutonomo" formControlName="pensionAutonomo" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="sueldo">Sueldo</label>
+      <input id="sueldo" formControlName="sueldo" type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular Desgravación</button>
+  </form>
+
+  <div *ngIf="desgravacion !== undefined" class="mt-4">
+    <p>Total a desgravar: {{ desgravacion | number:'1.2-2' }} euros</p>
+  </div>
+</div>
