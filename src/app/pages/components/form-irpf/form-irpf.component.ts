@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CalculadoraPensionService } from '../../../services/calculadora-pension.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-form-irpf',
@@ -11,7 +12,13 @@ export class FormIrpfComponent implements OnInit {
   pensionForm!: FormGroup;
   desgravacion!: number;
 
-  constructor(private fb: FormBuilder, private calculadoraService: CalculadoraPensionService) {}
+  constructor( 
+              private fb: FormBuilder, 
+              private calculadoraService: CalculadoraPensionService,
+              private translate: TranslateService
+            ) {
+              translate.setDefaultLang('en');
+            }
 
   ngOnInit(): void {
     this.pensionForm = this.fb.group({
@@ -29,5 +36,9 @@ export class FormIrpfComponent implements OnInit {
       const retencion = this.calculadoraService.calcularRetencion(sueldo);
       this.desgravacion = this.calculadoraService.calcularDesgravacion(totalInversion, retencion);
     }
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language); // Cambia el idioma
   }
 }

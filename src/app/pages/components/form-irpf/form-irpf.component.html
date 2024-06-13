@@ -1,25 +1,35 @@
 <div class="container">
   <form [formGroup]="pensionForm" (ngSubmit)="onSubmit()" class="mt-4">
     <div class="form-group">
-      <label for="pensionFisico">Pensión Físico</label>
+      <label for="pensionFisico">{{ 'pension.fisico' | translate }}</label>
       <input id="pensionFisico" formControlName="pensionFisico" type="number" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="pensionEmpresa">Pensión Empresa</label>
+      <label for="pensionEmpresa">{{ 'pension.empresa' | translate }}</label>
       <input id="pensionEmpresa" formControlName="pensionEmpresa" type="number" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="pensionAutonomo">Pensión Autónomo</label>
+      <label for="pensionAutonomo">{{ 'pension.autonomo' | translate }}</label>
       <input id="pensionAutonomo" formControlName="pensionAutonomo" type="number" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="sueldo">Sueldo</label>
+      <label for="sueldo">{{ 'salario' | translate }}</label>
       <input id="sueldo" formControlName="sueldo" type="number" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Calcular Desgravación</button>
+    <button type="submit" class="btn btn-primary">{{ 'calcular.desgravacion' | translate }}</button>
   </form>
 
   <div *ngIf="desgravacion !== undefined" class="mt-4">
-    <p>Total a desgravar: {{ desgravacion | number:'1.2-2' }} euros</p>
+    <p>{{ 'total.desgravar' | translate }}: {{ desgravacion | number:'1.2-2' }} euros</p>
+  </div>
+  <hr>
+
+  <h2>Elige Idioma</h2>
+  <div class="btn-group" role="group" aria-label="Language switcher">
+    <button class="btn btn-secondary" (click)="switchLanguage('en')">English</button>
+    <button class="btn btn-secondary" (click)="switchLanguage('es')">Español</button>
+    <button class="btn btn-secondary" (click)="switchLanguage('ca')">Catalá</button>
   </div>
 </div>
+
+
